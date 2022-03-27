@@ -21,8 +21,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.cupcake.databinding.FragmentStartBinding
+import com.example.cupcake.model.OrderViewModel
 
 /**
  * This is the first screen of the Cupcake app. The user can choose how many cupcakes to order.
@@ -33,6 +35,19 @@ class StartFragment : Fragment() {
     // This property is non-null between the onCreateView() and onDestroyView() lifecycle callbacks,
     // when the view hierarchy is attached to the fragment.
     private var binding: FragmentStartBinding? = null
+
+    /**
+     * viewModels() vs activityViewModels()
+     *
+     * 1. viewModels() gives you the ViewModel instance scoped to the current fragment.
+     *    This will be different for different fragments.
+     *
+     * 2. activityViewModels() gives you the ViewModel instance scoped to the current activity.
+     *   Therefore the instance will remain the same across multiple fragments in the same activity.
+     */
+
+    // Get a reference to the shared view model as a class variable
+    private val sharedViewModel: OrderViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,6 +73,18 @@ class StartFragment : Fragment() {
      * Start an order with the desired quantity of cupcakes and navigate to the next screen.
      */
     fun orderCupcake(quantity: Int) {
+
+        // Update the Quantity using the sharedViewModel
+        sharedViewModel.setQuantity(quantity)
+
+        // If no flavor is set
+        if (sharedViewModel.hasNoFlavorSet()) {
+
+            // Set the default flavor as Vanilla
+            sharedViewModel.setFlavor(getString(R.string.vanilla))
+
+        }
+
         // Toast.makeText(activity, "Ordered $quantity cupcake(s)", Toast.LENGTH_SHORT).show()
 
         // Navigate to the Flavor Fragment

@@ -37,4 +37,12 @@ class OrderViewModel : ViewModel() {
         _date.value = pickupDate
     }
 
+    /**
+     *  To check if the flavor for the order has been set or not.
+     *  You will use this method in the StartFragment class in a later step.
+     */
+    fun hasNoFlavorSet(): Boolean {
+        return _flavor.value.isNullOrEmpty()
+    }
+
 }
