@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
          * Result: This will do the following: Show a title in the app bar based off of the destination's label,
          * and display the Up button whenever you're not on a top-level destination.
          */
+
         // Retrieve NavController from the NavHostFragment
         val navHostFragment = supportFragmentManager
                 .findFragmentById(R.id.nav_host_fragment) as NavHostFragment

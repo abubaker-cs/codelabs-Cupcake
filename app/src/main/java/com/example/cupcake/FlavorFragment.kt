@@ -46,7 +46,7 @@ class FlavorFragment : Fragment() {
      *   Therefore the instance will remain the same across multiple fragments in the same activity.
      */
 
-    // Get a reference to the shared view model as a class variable
+    // Use the 'by activityViewModels()' Kotlin property delegate from the fragment-ktx artifact
     private val sharedViewModel: OrderViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -63,6 +63,7 @@ class FlavorFragment : Fragment() {
 
         binding?.apply {
 
+            // Specify the fragment as the lifecycle owner
             lifecycleOwner = viewLifecycleOwner
 
             // Binding the view model instance with the shared view model instance
