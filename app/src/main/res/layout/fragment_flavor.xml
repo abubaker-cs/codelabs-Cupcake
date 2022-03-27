@@ -54,6 +54,7 @@
                     android:id="@+id/vanilla"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:checked="@{viewModel.flavor.equals(@string/vanilla)}"
                     android:text="@string/vanilla"
                     />
 
@@ -61,6 +62,7 @@
                     android:id="@+id/chocolate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:checked="@{viewModel.flavor.equals(@string/chocolate)}"
                     android:text="@string/chocolate"
                     />
 
@@ -68,6 +70,7 @@
                     android:id="@+id/red_velvet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:checked="@{viewModel.flavor.equals(@string/red_velvet)}"
                     android:text="@string/red_velvet"
                     />
 
@@ -75,6 +78,7 @@
                     android:id="@+id/salted_caramel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:checked="@{viewModel.flavor.equals(@string/salted_caramel)}"
                     android:text="@string/salted_caramel"
                     />
 
@@ -82,6 +86,7 @@
                     android:id="@+id/coffee"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:checked="@{viewModel.flavor.equals(@string/coffee)}"
                     android:text="@string/coffee"
                     />
             </RadioGroup>
