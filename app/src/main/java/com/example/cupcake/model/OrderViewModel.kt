@@ -9,23 +9,37 @@ import java.util.*
 class OrderViewModel : ViewModel() {
 
     // Quantity
-    private val _quantity = MutableLiveData<Int>(0)
+    private val _quantity = MutableLiveData<Int>()
     val quantity: LiveData<Int> = _quantity
 
     // Flavor
-    private val _flavor = MutableLiveData<String>("")
+    private val _flavor = MutableLiveData<String>()
     val flavor: LiveData<String> = _flavor
 
     // Date
-    private val _date = MutableLiveData<String>("")
+    private val _date = MutableLiveData<String>()
     val date: LiveData<String> = _date
 
     // Price
-    private val _price = MutableLiveData<Double>(0.0)
+    private val _price = MutableLiveData<Double>()
     val price: LiveData<Double> = _price
 
     // Prepare the list of 4 dates
     val dateOptions = getPickupOptions()
+
+    /**
+     *  We are using the init block to initialize the properties when an instance of OrderViewModel is created.
+     */
+    init {
+
+        // Quantity = 0
+        // Flavor = ""
+        // Date = dateOptions[0] (Current Date)
+        // Price = 0.0
+
+        resetOrder()
+
+    }
 
     /**
      * Modifiers (Setters)
@@ -76,6 +90,16 @@ class OrderViewModel : ViewModel() {
 
         // Return list of 4 dates
         return options
+    }
+
+    /**
+     * Reset the values to default
+     */
+    fun resetOrder() {
+        _quantity.value = 0
+        _flavor.value = ""
+        _date.value = dateOptions[0]
+        _price.value = 0.0
     }
 
 }
