@@ -49,6 +49,9 @@ class OrderViewModel : ViewModel() {
      */
     fun setQuantity(numberCupcakes: Int) {
         _quantity.value = numberCupcakes
+
+        // update the price variable when the quantity is set
+        updatePrice()
     }
 
     fun setFlavor(desiredFlavor: String) {
@@ -104,10 +107,12 @@ class OrderViewModel : ViewModel() {
      */
     private fun updatePrice() {
         var calculatedPrice = (quantity.value ?: 0) * PRICE_PER_CUPCAKE
+
         // If the user selected the first option (today) for pickup, add the surcharge
         if (dateOptions[0] == _date.value) {
             calculatedPrice += PRICE_FOR_SAME_DAY_PICKUP
         }
+
         _price.value = calculatedPrice
     }
 

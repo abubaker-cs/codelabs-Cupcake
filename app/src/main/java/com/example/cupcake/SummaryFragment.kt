@@ -63,6 +63,8 @@ class SummaryFragment : Fragment() {
 
         binding?.apply {
 
+            lifecycleOwner = viewLifecycleOwner
+
             // Binding the view model instance with the shared view model instance
             viewModel = sharedViewModel
 
