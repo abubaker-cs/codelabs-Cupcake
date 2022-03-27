@@ -68,8 +68,10 @@ class PickupFragment : Fragment() {
             // Binding the view model instance with the shared view model instance
             viewModel = sharedViewModel
 
+            pickupFragment = this@PickupFragment
+
             // Action: Next Button
-            nextButton.setOnClickListener { goToNextScreen() }
+            // nextButton.setOnClickListener { goToNextScreen() }
         }
     }
 

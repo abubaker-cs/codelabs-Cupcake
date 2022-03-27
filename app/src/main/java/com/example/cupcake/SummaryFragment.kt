@@ -68,8 +68,10 @@ class SummaryFragment : Fragment() {
             // Binding the view model instance with the shared view model instance
             viewModel = sharedViewModel
 
+            summaryFragment = this@SummaryFragment
+            
             // Action: Next Button
-            sendButton.setOnClickListener { sendOrder() }
+            // sendButton.setOnClickListener { sendOrder() }
         }
     }
 

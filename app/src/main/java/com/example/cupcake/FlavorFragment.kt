@@ -68,8 +68,10 @@ class FlavorFragment : Fragment() {
             // Binding the view model instance with the shared view model instance
             viewModel = sharedViewModel
 
+            flavorFragment = this@FlavorFragment
+
             // Action: Next Button
-            nextButton.setOnClickListener { goToNextScreen() }
+            // nextButton.setOnClickListener { goToNextScreen() }
         }
     }
 
